@@ -1,2 +1,3 @@
 rootProject.name = 'boot-gradle'
 include 'core'
+include 'web1'

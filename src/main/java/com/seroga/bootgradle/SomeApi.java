@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SomeApi {
 
-    @GetMapping("/1")
+    @GetMapping("/2")
     public String hello() {
         String message =  "Hello 12312412!";
 //        String msg2 = message;
