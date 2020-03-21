@@ -51,8 +51,8 @@ subprojects {
         apply plugin: 'io.spring.dependency-management'
         apply plugin: 'java'
 
-//    group = 'com.seroga'
-//    version = '0.0.1-SNAPSHOT'
+        group = 'com.seroga'
+        version = '0.0.1-SNAPSHOT'
         sourceCompatibility = '1.8'
 
         repositories {

@@ -1,13 +1,17 @@
+import static org.gradle.api.tasks.PathSensitivity.RELATIVE
+
 plugins {
-    id "com.moowork.node" version "1.3.1"
+//    id "com.moowork.node" version "1.3.1"
+    id "com.github.node-gradle.node" version "1.3.0"
     id 'base'
 }
 
-clean {
-    delete 'node_modules', 'dist'
-}
+//clean {
+//    delete 'node_modules'
+//}
 
-npm_run_build{
+npm_run_build {
+    outputs.cacheIf { true }
     outputs.dir('build')
     inputs.dir('src')
     inputs.file('webpack.config.js')

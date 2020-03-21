@@ -3,3 +3,16 @@ include 'core'
 include 'web1'
 include 'frontend'
 
+buildCache {
+    local {
+        directory = "${gradle.gradleUserHomeDir}/my-test-cache"
+        removeUnusedEntriesAfterDays = 1
+    }
+}
+
+//println('###################################################################')
+//println(buildCache.local.directory)
+//println(buildCache.local.removeUnusedEntriesAfterDays)
+//println(gradle.gradleUserHomeDir)
+//println(gradle.gradleHomeDir)
+//println('###################################################################')
