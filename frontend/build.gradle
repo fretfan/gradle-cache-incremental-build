@@ -1,6 +1,3 @@
-//group 'com.seroga'
-//version '0.0.1-SNAPSHOT'
-
 plugins {
     id "com.moowork.node" version "1.3.1"
     id 'base'
@@ -11,7 +8,7 @@ clean {
 }
 
 npm_run_build{
-    outputs.dir('dist')
+    outputs.dir('build')
     inputs.dir('src')
     inputs.file('webpack.config.js')
     inputs.file('package.json')
