@@ -22,6 +22,8 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    // tomcat deps will go into WEB-INF/lib-provided
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 
     implementation project('core')
     implementation project('web1')
@@ -36,7 +38,7 @@ test {
     useJUnitPlatform()
 }
 
-bootWar {
+def warConfig = {
     dependsOn('frontend:build')
     webInf {
         from project('frontend').buildDir
@@ -44,6 +46,15 @@ bootWar {
     }
 }
 
+bootWar {
+    configure warConfig
+    archiveClassifier = 'bootable' // to avoid clashing with 'war' task output
+}
+
+war { // no tomcat and springboot runner dependency
+    configure warConfig
+    enabled = true
+}
 
 task cleanCache(type: Delete) {
     delete file("${gradle.gradleUserHomeDir}/${cacheFolder}")
@@ -69,6 +80,7 @@ subprojects {
                 extendsFrom developmentOnly
             }
         }
+        // subprojects should produce simple Jars, not bootable. Only parent project can create bootableJar
         bootJar.enabled = false
         jar.enabled = true
 
