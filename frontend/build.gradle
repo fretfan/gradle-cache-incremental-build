@@ -19,4 +19,5 @@ npm_run_build {
     inputs.file('package-lock.json')
 }
 
-assemble.dependsOn('npm_run_build')
+check.dependsOn('npm_run_test')
+assemble.dependsOn('check', 'npm_run_build')
