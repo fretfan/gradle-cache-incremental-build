@@ -44,6 +44,11 @@ bootWar {
     }
 }
 
+
+task cleanCache(type: Delete) {
+    delete file("${gradle.gradleUserHomeDir}/${cacheFolder}")
+}
+
 subprojects {
 
     if (it.name != 'frontend') {

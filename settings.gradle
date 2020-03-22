@@ -5,13 +5,14 @@ include 'frontend'
 
 buildCache {
     local {
-        directory = "${gradle.gradleUserHomeDir}/my-test-cache"
+        directory = "${gradle.gradleUserHomeDir}/${cacheFolder}"
         removeUnusedEntriesAfterDays = 1
     }
 }
 
 //println('###################################################################')
-//println(buildCache.local.directory)
+//println(buildscript.cacheFolder)
+//println("${gradle.gradleUserHomeDir}/${cacheFolder}")
 //println(buildCache.local.removeUnusedEntriesAfterDays)
 //println(gradle.gradleUserHomeDir)
 //println(gradle.gradleHomeDir)
